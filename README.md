@@ -20,4 +20,5 @@ and the pros + cons of different types of databases. This session I finished cha
 
 SESSION THREE (10/29)
 
-Worked on login functionality. 
+Worked on login and registration functionalities. This was a lot more complicated and complex than anything
+covered in the previous chapters. This session I finished chapter 5 of the tutorial (User Logins).
