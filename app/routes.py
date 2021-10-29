@@ -9,6 +9,7 @@ from app.models import User
 from app import db
 from app.models import User, Post
 from app.forms import RegistrationForm
+from app.forms import EditEntryForm
 
 
 @app.route('/')
@@ -19,12 +20,18 @@ def index():
     return render_template("index.html", title='Home Page', posts=posts)
 
 
-@app.route("/edit")
+@app.route('/entry', methods=['GET', 'POST'])
+@login_required
 def edit_entry():
-    """Create a new note or edit an existing one"""
-    title = "New Note"
-
-    return render_template("edit.html")
+    form = EditEntryForm()
+    if form.validate_on_submit():
+        p = Post(body=form.entry.data, author=current_user)
+        db.session.add(p)
+        db.session.commit()
+        return redirect(url_for('login'))
+    elif request.method == 'GET':
+        form.entry.data = ""
+    return render_template('edit.html', form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])

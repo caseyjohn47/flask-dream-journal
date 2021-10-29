@@ -1,15 +1,16 @@
 {% extends "base.html" %}
+
 {% block content %}
-		<form>
-			<p>
-				<label for="note-title">Title</label>
-				<input type="text" name="title" id="note-title">
-			</p>
-			<p>
-				<label for="note-body">Note</label>
-				<input type="textarea" name="body" id="note-body">
-			</p>
-            <button type="submit">Submit</button>
-            <a class="action cancel" href="{{ url_for('index') }}">Cancel</a>
-	</form>
+    <h1>New Note</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.entry.label }}<br>
+            {{ form.entry(size=32) }}<br>
+            {% for error in form.entry.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
 {% endblock %}

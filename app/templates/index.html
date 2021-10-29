@@ -3,7 +3,7 @@
 {% block content %}
     <h1>Hi, {{ current_user.username }}!</h1>
     <h2>Welcome to your dream journal!</h2>
-    <a class="action new-note" href="{{ url_for('edit_entry') }}"">New Journal Entry</a>
+    <a class="action new-note" href="{{ url_for('edit_entry') }}">New Journal Entry</a>
     {% for post in posts %}
     <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
     {% endfor %}
