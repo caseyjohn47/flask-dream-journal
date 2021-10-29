@@ -17,3 +17,7 @@ SESSION TWO (10/28)
 
 Working with databases was very interesting. The article was super helpful for explaining how they work
 and the pros + cons of different types of databases. This session I finished chapter 4 of the tutorial (databases).
+
+SESSION THREE (10/29)
+
+Worked on login functionality. 
