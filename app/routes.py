@@ -15,8 +15,16 @@ from app.forms import RegistrationForm
 @app.route('/index')
 @login_required
 def index():
-    posts = Post.query.all()
+    posts = current_user.posts.all()
     return render_template("index.html", title='Home Page', posts=posts)
+
+
+@app.route("/edit")
+def edit_entry():
+    """Create a new note or edit an existing one"""
+    title = "New Note"
+
+    return render_template("edit.html")
 
 
 @app.route('/login', methods=['GET', 'POST'])

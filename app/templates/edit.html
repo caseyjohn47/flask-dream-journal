@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+		<form>
+			<p>
+				<label for="note-title">Title</label>
+				<input type="text" name="title" id="note-title">
+			</p>
+			<p>
+				<label for="note-body">Note</label>
+				<input type="textarea" name="body" id="note-body">
+			</p>
+            <button type="submit">Submit</button>
+            <a class="action cancel" href="{{ url_for('index') }}">Cancel</a>
+	</form>
+{% endblock %}

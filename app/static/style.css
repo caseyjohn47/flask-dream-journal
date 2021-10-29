@@ -1,0 +1,146 @@
+@charset "utf-8";
+
+
+/* ********************* */
+/* Resets, Global Theme */
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin: initial;
+	padding: initial;
+	font-family: system-ui, -apple-system, sans-serif;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+:root {
+	--note-color-bg: hsla(49, 100%, 80%, 1);
+	--ui-border-color: hsla(0, 0%, 40%, 1);
+	--ui-action-new-fg: hsla(202, 86%, 30%, 1);
+	--ui-action-new-bg: hsla(202, 29%, 94%, 1);
+	--ui-action-neutral-fg: hsla(60, 5%, 22%, 1);
+	--ui-action-neutral-bg: hsla(60, 5%, 94%, 1);
+	--ui-action-warning-fg: hsla(0, 75%, 42%, 1);
+	--ui-action-warning-bg: hsla(0, 20%, 94%, 1);
+}
+
+.wrapper {
+	max-width: 42rem;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+button {
+	display: block;
+	margin: 0.25rem;
+	padding: 0.5rem;
+}
+
+/* Actions may be links or buttons. This is an non-comprehensive reset
+   for both. */
+a.action, button.action {
+	border-radius: 0.25rem;
+	border: 1px solid currentColor;
+	display: block;
+	font-size: 1rem;
+	margin: 0.25rem;
+	padding: 0.5rem;
+	text-decoration: none;
+}
+
+.action:visited {
+	color: currentColor;
+}
+
+
+
+/* ********************* */
+/* Header */
+
+.site-header {
+	background: hsla(0, 0%, 100%, 1);
+	border-bottom: 1px solid var(--ui-border-color);
+	display: flex;
+	align-items: start;
+	margin: 0 0 4rem;
+	padding: 2rem 0;
+	position: sticky;
+	top: 0;
+}
+
+h1 {
+	margin: 0;
+	flex: 1 0 auto;
+}
+
+.action.new-note {
+	background-color: var(--ui-action-new-bg);
+	color: var(--ui-action-new-fg);
+}
+
+
+/* ********************* */
+/* Notes List */
+
+main {}
+
+.note {
+	margin: 2rem 0 3rem;
+}
+
+.note-header {
+	display: grid;
+	grid-template-columns: 1fr min-content min-content;
+	align-items: start;
+}
+
+.note-meta {}
+
+.note h2 {
+	margin: 0;
+}
+
+.date-modified {
+	margin: 0 0 0.5rem;
+}
+
+.action.new-note {
+	background-color: var(--ui-action-neutral-bg);
+    color: var(--ui-action-neutral-fg);
+    text-align: center;
+}
+
+.action.edit-note {
+	background-color: var(--ui-action-neutral-bg);
+	color: var(--ui-action-neutral-fg);
+}
+
+.action.delete-note {
+	background-color: var(--ui-action-warning-bg);
+	color: var(--ui-action-warning-fg);
+}
+
+.note-body {
+	background-color: var(--note-color-bg);
+	padding: 1rem;
+	margin: 0;
+}
+
+
+/* ********************* */
+/* Create/Edit Note Page */
+
+.action.cancel {
+	background-color: var(--ui-action-neutral-bg);
+    color: var(--ui-action-neutral-fg);
+    display: block;
+	margin: 0.25rem;
+	padding: 0.5rem;
+}
