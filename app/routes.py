@@ -7,6 +7,7 @@ from flask_login import logout_user
 from flask_login import login_required
 from app.models import User
 from app import db
+from app.models import User, Post
 from app.forms import RegistrationForm
 
 
@@ -14,21 +15,7 @@ from app.forms import RegistrationForm
 @app.route('/index')
 @login_required
 def index():
-    user = {'username': 'Casey'}
-    posts = [
-        {
-            'author': {'username': 'Casey'},
-            'body': 'Had a great day in class!'
-        },
-        {
-            'author': {'username': 'Casey'},
-            'body': 'Played a Rugby game!'
-        },
-        {
-            'author': {'username': 'Casey'},
-            'body': 'Went home to River Vale!'
-        }
-    ]
+    posts = Post.query.all()
     return render_template("index.html", title='Home Page', posts=posts)
 
 
