@@ -22,3 +22,8 @@ SESSION THREE (10/29)
 
 Worked on login and registration functionalities. This was a lot more complicated and complex than anything
 covered in the previous chapters. This session I finished chapter 5 of the tutorial (User Logins).
+
+SESSION FOUR (10/29)
+
+Worked on submitting new entries for the dream journal. I am now able to submit a new try using the form.
+I did this using material from chapter 6 of the tutorial (Profile Page and Avatars).
