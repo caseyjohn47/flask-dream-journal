@@ -25,5 +25,5 @@ covered in the previous chapters. This session I finished chapter 5 of the tutor
 
 SESSION FOUR (10/29)
 
-Worked on submitting new entries for the dream journal. I am now able to submit a new try using the form.
+Worked on submitting new entries for the dream journal. I am now able to submit a new entry using the form.
 I did this using material from chapter 6 of the tutorial (Profile Page and Avatars).
