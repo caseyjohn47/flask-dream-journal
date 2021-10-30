@@ -27,3 +27,10 @@ SESSION FOUR (10/29)
 
 Worked on submitting new entries for the dream journal. I am now able to submit a new entry using the form.
 I did this using material from chapter 6 of the tutorial (Profile Page and Avatars).
+
+TO DO:
+
+- Add comments detailing the project
+- Style the application. It looks ugly right now
+- Add a profile page with more features
+- Allow user to edit and delete notes
