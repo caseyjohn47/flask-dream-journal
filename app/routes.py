@@ -34,6 +34,20 @@ def edit_entry():
     return render_template('edit.html', form=form)
 
 
+@app.route('/delete/<int:id>')
+@login_required
+def delete_entry(id):
+    post_to_delete = Post.query.get_or_404(id)
+    try:
+        db.session.delete(post_to_delete)
+        db.session.commit()
+        flash("Post deleted successfully.")
+        return redirect(url_for('index'))
+    except:
+        flash("There was a problem! Please try again.")
+        return redirect(url_for('index'))
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
