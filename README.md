@@ -28,9 +28,14 @@ SESSION FOUR (10/29)
 Worked on submitting new entries for the dream journal. I am now able to submit a new entry using the form.
 I did this using material from chapter 6 of the tutorial (Profile Page and Avatars).
 
+SESSION FIVE (11/1)
+
+Finished functionality allowing the user to delete and edit notes. I learned how to do this using multiple
+online resources rather than the Flask Mega Tutorial. This was interesting to learn how to manipulate the
+database using different methods in the routes.db.
+
 TO DO:
 
 - Add comments detailing the project
 - Style the application. It looks ugly right now
-- Add a profile page with more features
-- Allow user to edit and delete notes
+- Add a profile page with more features?
