@@ -9,7 +9,7 @@ from app.models import User
 from app import db
 from app.models import User, Post
 from app.forms import RegistrationForm
-from app.forms import EditEntryForm
+from app.forms import NewEntryForm
 
 
 @app.route('/')
@@ -20,10 +20,10 @@ def index():
     return render_template("index.html", title='Home Page', posts=posts)
 
 
-@app.route('/entry', methods=['GET', 'POST'])
+@app.route('/new_entry', methods=['GET', 'POST'])
 @login_required
-def edit_entry():
-    form = EditEntryForm()
+def new_entry():
+    form = NewEntryForm()
     if form.validate_on_submit():
         p = Post(body=form.entry.data, author=current_user)
         db.session.add(p)
@@ -31,7 +31,7 @@ def edit_entry():
         return redirect(url_for('login'))
     elif request.method == 'GET':
         form.entry.data = ""
-    return render_template('edit.html', form=form)
+    return render_template('new.html', form=form)
 
 
 @app.route('/delete/<int:id>')
