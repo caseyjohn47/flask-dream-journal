@@ -14,6 +14,10 @@ class NewEntryForm(FlaskForm):
     entry = StringField('Entry', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
+class EditEntryForm(FlaskForm):
+    entry = StringField('Entry', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])

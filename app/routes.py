@@ -10,6 +10,7 @@ from app import db
 from app.models import User, Post
 from app.forms import RegistrationForm
 from app.forms import NewEntryForm
+from app.forms import EditEntryForm
 
 
 @app.route('/')
@@ -46,6 +47,20 @@ def delete_entry(id):
     except:
         flash("There was a problem! Please try again.")
         return redirect(url_for('index'))
+
+
+@app.route('/edit/<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit_entry(id):
+    post_to_edit = Post.query.get_or_404(id)
+    form = EditEntryForm()
+    if form.validate_on_submit():
+        post_to_edit.body = form.entry.data
+        db.session.commit()
+        return redirect(url_for('login'))
+    elif request.method == 'GET':
+        form.entry.data = post_to_edit.body
+    return render_template('edit.html', form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])

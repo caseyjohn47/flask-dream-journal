@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>New Dream Journal Entry</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.entry.label }}<br><br>
+            {{ form.entry(cols=100,rows=50)}}<br>
+            {% for error in form.entry.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    <a class="action cancel" href="{{ url_for('index') }}">Cancel</a>
+{% endblock %}
