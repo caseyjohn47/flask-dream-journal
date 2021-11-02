@@ -3,8 +3,19 @@
 {% block content %}
     <h1>{{ usr.username }} - Profile</h1>
 
+
     <h2>About Me</h2>
-    <p>Insert about me section here.</p>
+    {% if usr.id == current_user.id %}
+    <p>Edit About Me?</p>
+    {% endif %}
+
+
+    {% if usr.about_me %}
+    <p>{{ usr.about_me }}</p>
+    {% else %}
+    <p>Your About Me has not been set up yet!</p>
+    {% endif %}
+    
 
     <h2>Dream Journal</h2>
     {% for post in posts %}
