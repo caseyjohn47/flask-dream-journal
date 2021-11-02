@@ -36,13 +36,20 @@ database using different methods in the routes.db.
 
 ### SESSION SIX (11/2)
 
+Implemented profile pages, an about me section for every user, and a community page.
+Now, the user can open their own profile page and edit their about me. They can also go to the community page 
+and view every user in the system.Lastly, they can click on any user on the community page and view their profile.
+Every profile page includes the username, an about me section and their dream journal. This was a fun extension and
+I felt that I learned a lot about the system while doing this. This also helped me prove to myself that I was
+learning the material and not simply following a tutorial because I did this entirely on my own without any help from
+online resources. With this, I have completed all of the functionality that I was planning to. Now, all I have left
+to do is style the application and add my comments throughout the project.
 
 
 ## To Do List
 
 - Add comments within the code detailing the project
 - Style the application. It looks ugly right now
-- Add a profile page with more features?
 
 ## Installing This Project
 
