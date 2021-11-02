@@ -8,9 +8,7 @@ from flask_login import login_required
 from app.models import User
 from app import db
 from app.models import User, Post
-from app.forms import RegistrationForm
-from app.forms import NewEntryForm
-from app.forms import EditEntryForm
+from app.forms import RegistrationForm, EditProfileForm, NewEntryForm, EditEntryForm
 
 
 @app.route('/')
@@ -115,3 +113,17 @@ def profile_page(id):
 def community_page():
     users = User.query.all()
     return render_template("community.html", title='Community', users=users)
+
+
+@app.route('/edit/profile/<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit_profile(id):
+    this_user = User.query.get_or_404(id)
+    form = EditProfileForm()
+    if form.validate_on_submit():
+        this_user.about_me = form.about_me.data
+        db.session.commit()
+        return redirect(url_for('profile_page', id=id))
+    elif request.method == 'GET':
+        form.about_me.data = this_user.about_me
+    return render_template('edit_profile.html', form=form)
