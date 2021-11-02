@@ -3,6 +3,9 @@
 {% block content %}
     <h1>{{ usr.username }} - Profile</h1>
 
+    <h2>About Me</h2>
+    <p>Insert about me section here.</p>
+
     <h2>Dream Journal</h2>
     {% for post in posts %}
     <div><p>Dream from {{ post.timestamp }}: <b>{{ post.body }}</b></p></div>
