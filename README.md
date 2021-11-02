@@ -34,6 +34,10 @@ Finished functionality allowing the user to delete and edit notes. I learned how
 online resources rather than the Flask Mega Tutorial. This was interesting to learn how to manipulate the
 database using different methods in the routes.db.
 
+### SESSION SIX (11/2)
+
+
+
 ## To Do List
 
 - Add comments within the code detailing the project
@@ -47,4 +51,4 @@ database using different methods in the routes.db.
 - Create virtual environment: 'python3 -m venv venv'
 - Activate the environment: 'source venv/bin/activate'
 - Install the requirements: 'pip install -r requirements.txt'
-NOTE: Currently, the venv is in the Github. This will be fixed in a later edit
+- NOTE: Currently, the venv is in the Github. This will be fixed in a later edit
