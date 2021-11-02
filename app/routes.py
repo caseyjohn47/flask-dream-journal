@@ -108,3 +108,10 @@ def profile_page(id):
     this_user = User.query.get_or_404(id)
     posts = this_user.posts.all()
     return render_template("profile.html", title='Profile Page', usr=this_user, posts=posts)
+
+
+@app.route('/community')
+@login_required
+def community_page():
+    users = User.query.all()
+    return render_template("community.html", title='Community', users=users)
