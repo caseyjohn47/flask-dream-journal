@@ -113,7 +113,10 @@ def profile_page(id):
 def community_page():
     users = User.query.all()
     posts = Post.query.order_by(Post.id.desc()).limit(10).all()
-    return render_template("community.html", title='Community', users=users, posts=posts)
+    user_list = []
+    for post in posts:
+        user_list.append(User.query.filter_by(id=post.user_id).first())
+    return render_template("community.html", title='Community', users=users, posts=posts, user_list=user_list)
 
 # Edit About Me section
 @app.route('/edit/profile/<int:id>', methods=['GET', 'POST'])

@@ -8,6 +8,6 @@
     {% endfor %}
     <h2>Recent posts</h2>
     {% for post in posts %}
-    <div><p>{{ users[post.user_id - 1].username }} posted this dream on {{ post.timestamp }}: <b>{{ post.body }}</b></p></div>
+        <div><p>{{ user_list[loop.index0].username }} posted this dream on {{ post.timestamp }}: <b>{{ post.body }}</b></p></div>
     {% endfor %}
 {% endblock %}
