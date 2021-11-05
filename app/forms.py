@@ -1,37 +1,37 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
-from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, length
+from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
 from app.models import User
 
 # Form for logging in
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
+    username = StringField('Username', validators=[DataRequired(), Length(max=64)])
+    password = PasswordField('Password', validators=[DataRequired(), Length(max=128)])
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
 
 # Form for a new journal entry
 class NewEntryForm(FlaskForm):
-    entry = StringField('Entry', validators=[DataRequired()])
+    entry = StringField('Entry', validators=[DataRequired(), Length(max=140)])
     submit = SubmitField('Submit')
 
 # Form for editing a journal entry
 class EditEntryForm(FlaskForm):
-    entry = StringField('Entry', validators=[DataRequired()])
+    entry = StringField('Entry', validators=[DataRequired(), Length(max=140)])
     submit = SubmitField('Submit')
 
 # Form for editing about me
 class EditProfileForm(FlaskForm):
-    about_me = StringField('About Me', validators=[DataRequired()])
+    about_me = StringField('About Me', validators=[DataRequired(), Length(max=140)])
     submit = SubmitField('Submit')
 
 # Form for registering a new user
 class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
+    username = StringField('Username', validators=[DataRequired(), Length(max=64)])
+    email = StringField('Email', validators=[DataRequired(), Email(), Length(max=120)])
+    password = PasswordField('Password', validators=[DataRequired(), Length(max=128)])
     password2 = PasswordField(
-        'Repeat Password', validators=[DataRequired(), EqualTo('password')])
+        'Repeat Password', validators=[DataRequired(), EqualTo('password'), Length(max=128)])
     submit = SubmitField('Register')
 
     def validate_username(self, username):

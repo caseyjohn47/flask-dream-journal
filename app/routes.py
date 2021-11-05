@@ -10,6 +10,7 @@ from app import db
 from app.models import User, Post
 from app.forms import RegistrationForm, EditProfileForm, NewEntryForm, EditEntryForm
 
+
 # Home page
 @app.route('/')
 @app.route('/index')
@@ -17,6 +18,7 @@ from app.forms import RegistrationForm, EditProfileForm, NewEntryForm, EditEntry
 def index():
     posts = current_user.posts.all()
     return render_template("index.html", title='Home Page', posts=posts)
+
 
 # New entry in dream journal
 @app.route('/new_entry', methods=['GET', 'POST'])
@@ -32,6 +34,7 @@ def new_entry():
         form.entry.data = ""
     return render_template('new.html', form=form)
 
+
 # Delete entry in dream journal
 @app.route('/delete/<int:id>')
 @login_required
@@ -46,6 +49,7 @@ def delete_entry(id):
         flash("There was a problem! Please try again.")
         return redirect(url_for('index'))
 
+
 # Edit entry in dream journal
 @app.route('/edit/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -59,6 +63,7 @@ def edit_entry(id):
     elif request.method == 'GET':
         form.entry.data = post_to_edit.body
     return render_template('edit.html', form=form)
+
 
 # Login page
 @app.route('/login', methods=['GET', 'POST'])
@@ -78,11 +83,13 @@ def login():
         return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
 
+
 # Logout user
 @app.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
 
 # Register user
 @app.route('/register', methods=['GET', 'POST'])
@@ -99,6 +106,7 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
+
 # Profile page
 @app.route('/profile/<int:id>')
 @login_required
@@ -106,6 +114,7 @@ def profile_page(id):
     this_user = User.query.get_or_404(id)
     posts = this_user.posts.all()
     return render_template("profile.html", title='Profile Page', usr=this_user, posts=posts)
+
 
 # Community page
 @app.route('/community')
@@ -117,6 +126,7 @@ def community_page():
     for post in posts:
         user_list.append(User.query.filter_by(id=post.user_id).first())
     return render_template("community.html", title='Community', users=users, posts=posts, user_list=user_list)
+
 
 # Edit About Me section
 @app.route('/edit/profile/<int:id>', methods=['GET', 'POST'])
