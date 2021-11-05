@@ -112,7 +112,7 @@ def profile_page(id):
 @login_required
 def community_page():
     users = User.query.all()
-    posts = Post.query.limit(10).all()
+    posts = Post.query.order_by(Post.id.desc()).limit(10).all()
     return render_template("community.html", title='Community', users=users, posts=posts)
 
 # Edit About Me section
