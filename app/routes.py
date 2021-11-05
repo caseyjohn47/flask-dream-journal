@@ -112,7 +112,8 @@ def profile_page(id):
 @login_required
 def community_page():
     users = User.query.all()
-    return render_template("community.html", title='Community', users=users)
+    posts = Post.query.all()
+    return render_template("community.html", title='Community', users=users, posts=posts)
 
 # Edit About Me section
 @app.route('/edit/profile/<int:id>', methods=['GET', 'POST'])

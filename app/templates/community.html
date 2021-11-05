@@ -1,8 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Members of the Community</h1>
+    <h1>Community</h1>
+    <h2>Members of the Community</h2>
     {% for user in users %}
     <a href="{{ url_for('profile_page', id = user.id) }}">{{ user.username }}</a><br></div>
+    {% endfor %}
+    <h2>Recent posts</h2>
+    {% for post in posts %}
+    <div><p>{{ users[post.user_id - 1].username }} posted this dream on {{ post.timestamp }}: <b>{{ post.body }}</b></p></div>
     {% endfor %}
 {% endblock %}
