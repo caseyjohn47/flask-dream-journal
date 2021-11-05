@@ -10,7 +10,7 @@ from app import db
 from app.models import User, Post
 from app.forms import RegistrationForm, EditProfileForm, NewEntryForm, EditEntryForm
 
-
+# Home page
 @app.route('/')
 @app.route('/index')
 @login_required
@@ -18,7 +18,7 @@ def index():
     posts = current_user.posts.all()
     return render_template("index.html", title='Home Page', posts=posts)
 
-
+# New entry in dream journal
 @app.route('/new_entry', methods=['GET', 'POST'])
 @login_required
 def new_entry():
@@ -32,7 +32,7 @@ def new_entry():
         form.entry.data = ""
     return render_template('new.html', form=form)
 
-
+# Delete entry in dream journal
 @app.route('/delete/<int:id>')
 @login_required
 def delete_entry(id):
@@ -46,7 +46,7 @@ def delete_entry(id):
         flash("There was a problem! Please try again.")
         return redirect(url_for('index'))
 
-
+# Edit entry in dream journal
 @app.route('/edit/<int:id>', methods=['GET', 'POST'])
 @login_required
 def edit_entry(id):
@@ -60,7 +60,7 @@ def edit_entry(id):
         form.entry.data = post_to_edit.body
     return render_template('edit.html', form=form)
 
-
+# Login page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -78,13 +78,13 @@ def login():
         return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
 
-
+# Logout user
 @app.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('index'))
 
-
+# Register user
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
@@ -99,7 +99,7 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
-
+# Profile page
 @app.route('/profile/<int:id>')
 @login_required
 def profile_page(id):
@@ -107,14 +107,14 @@ def profile_page(id):
     posts = this_user.posts.all()
     return render_template("profile.html", title='Profile Page', usr=this_user, posts=posts)
 
-
+# Community page
 @app.route('/community')
 @login_required
 def community_page():
     users = User.query.all()
     return render_template("community.html", title='Community', users=users)
 
-
+# Edit About Me section
 @app.route('/edit/profile/<int:id>', methods=['GET', 'POST'])
 @login_required
 def edit_profile(id):
