@@ -57,4 +57,7 @@ to do is style the application and add my comments throughout the project.
 - Create virtual environment: 'python3 -m venv venv'
 - Activate the environment: 'source venv/bin/activate'
 - Install the requirements: 'pip install -r requirements.txt'
-- NOTE: Currently, the venv is in the Github. This will be fixed in a later edit
+- Initialize the database: 'flask db init'
+- Run the first migration: 'flask db migrate -m "initialize"'
+- Upgrade the database: 'flask db upgrade'
+- Run the program: 'flask run'
