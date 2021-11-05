@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Community</h1>
+    <h1>Members of the Community</h1>
     {% for user in users %}
     <a href="{{ url_for('profile_page', id = user.id) }}">{{ user.username }}</a><br></div>
     {% endfor %}

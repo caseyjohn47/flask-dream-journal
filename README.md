@@ -45,7 +45,6 @@ learning the material and not simply following a tutorial because I did this ent
 online resources. With this, I have completed all of the functionality that I was planning to. Now, all I have left
 to do is style the application and add my comments throughout the project.
 
-
 ## To Do List
 
 - Add comments within the code detailing the project
