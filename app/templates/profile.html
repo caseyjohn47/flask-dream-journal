@@ -18,7 +18,12 @@
     
 
     <h2>Dream Journal</h2>
-    {% for post in posts %}
-    <div><p>Dream from {{ post.timestamp }}: <b>{{ post.body }}</b></p></div>
-    {% endfor %}
+    {% if posts %}
+        {% for post in posts %}
+        <div><p>Dream from {{ post.timestamp }}: <b>{{ post.body }}</b></p></div>
+        {% endfor %}
+    {% else %}
+    <p>No posts yet!</p>
+    {% endif %}
+        
 {% endblock %}

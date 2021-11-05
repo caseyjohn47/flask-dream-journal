@@ -9,13 +9,15 @@
     </head>
     <body>
         <div>
+            {% if current_user.is_anonymous %}
+            Dream Journal:
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            {% else %}
             Dream Journal:
             <a href="{{ url_for('index') }}">Home</a>
             <a href="{{ url_for('profile_page', id = current_user.id) }}">Profile</a>
             <a href="{{ url_for('community_page') }}">Community</a>
-            {% if current_user.is_anonymous %}
-            <a href="{{ url_for('login') }}">Login</a>
-            {% else %}
             <a href="{{ url_for('logout') }}">Logout</a>
             {% endif %}
         </div>
