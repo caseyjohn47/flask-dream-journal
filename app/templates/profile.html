@@ -19,7 +19,7 @@
 
     <h2>Dream Journal</h2>
     {% if posts %}
-        {% for post in posts %}
+        {% for post in posts | reverse %}
         <div><p>Dream from {{ post.timestamp }}: <b>{{ post.body }}</b></p></div>
         {% endfor %}
     {% else %}
