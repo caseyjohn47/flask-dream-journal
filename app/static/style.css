@@ -92,11 +92,13 @@ input[type="submit"].action {
 h1 {
 	margin: 0;
 	flex: 1 0 auto;
+	text-align: center;
 }
 
 .action.new-note {
 	background-color: var(--ui-action-new-bg);
 	color: var(--ui-action-new-fg);
+	width: 10%;
 }
 
 
@@ -128,11 +130,13 @@ main {}
 .action.edit-note {
 	background-color: var(--ui-action-neutral-bg);
 	color: var(--ui-action-neutral-fg);
+	width: 10%;
 }
 
 .action.delete-note {
 	background-color: var(--ui-action-warning-bg);
 	color: var(--ui-action-warning-fg);
+	width: 10%;
 }
 
 .note-body {
