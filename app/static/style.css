@@ -22,6 +22,7 @@ img {
 
 :root {
 	--note-color-bg: hsla(49, 100%, 80%, 1);
+	--note-accent-color: hsla(49, 75%, 65%, 1);
 	--ui-border-color: hsla(0, 0%, 40%, 1);
 	--ui-action-new-fg: hsla(202, 86%, 30%, 1);
 	--ui-action-new-bg: hsla(202, 29%, 94%, 1);
@@ -37,15 +38,20 @@ img {
 	padding: 0 2rem;
 }
 
-button {
+button,
+input[type="submit"] {
 	display: block;
 	margin: 0.25rem;
 	padding: 0.5rem;
+	font-family: inherit;
+	font-size: 100%;
 }
 
 /* Actions may be links or buttons. This is an non-comprehensive reset
    for both. */
-a.action, button.action {
+a.action,
+button.action,
+input[type="submit"].action {
 	border-radius: 0.25rem;
 	border: 1px solid currentColor;
 	display: block;
@@ -59,6 +65,14 @@ a.action, button.action {
 	color: currentColor;
 }
 
+
+.flash-message {
+	background-color: var(--ui-action-neutral-bg);
+	color: var(--ui-action-neutral-fg);
+	padding: 0.5rem;
+	font-style: italic;
+	border: 1px solid var(--ui-border-color);
+}
 
 
 /* ********************* */
@@ -111,12 +125,6 @@ main {}
 	margin: 0 0 0.5rem;
 }
 
-.action.new-note {
-	background-color: var(--ui-action-neutral-bg);
-    color: var(--ui-action-neutral-fg);
-    text-align: center;
-}
-
 .action.edit-note {
 	background-color: var(--ui-action-neutral-bg);
 	color: var(--ui-action-neutral-fg);
@@ -139,8 +147,61 @@ main {}
 
 .action.cancel {
 	background-color: var(--ui-action-neutral-bg);
-    color: var(--ui-action-neutral-fg);
-    display: block;
-	margin: 0.25rem;
-	padding: 0.5rem;
+	color: var(--ui-action-neutral-fg);
+}
+
+.action.submit {
+	background-color: var(--ui-action-new-bg);
+	color: var(--ui-action-new-fg);
+}
+
+/* Container for label + input + errors */
+.form-field {
+	margin-top: 2rem;
+}
+
+label, input, textarea {
+	display: block;
+	font-family: inherit;
+	font-size: 100%;
+}
+
+label {
+	margin-bottom: .5rem;
+	font-size: 1.25rem;
+}
+
+input[type="text"] {
+	padding: 0.25em;
+	width: 32em;
+	accent-color: var(--note-accent-color);
+}
+
+textarea {
+	padding: 0.25em;
+	width: 32em;
+	height: 18em;
+	accent-color: var(--note-accent-color);
+	overflow: auto;
+	/* Restrict input resizing to height only */
+	resize: vertical;
+}
+
+.input-error {
+	margin-top: 0.5rem;
+	color: var(--ui-action-warning-fg);
+}
+
+input[type="submit"] {}
+
+
+/* ********************* */
+/* Delete Note Page */
+
+.form-delete-note .form-field {
+	display: flex;
+}
+
+.form-delete-note .form-field > * {
+	flex: 0 1 auto;
 }
