@@ -26,7 +26,7 @@ def index():
 def new_entry():
     form = NewEntryForm()
     if form.validate_on_submit():
-        p = Post(body=form.entry.data, author=current_user)
+        p = Post(body=form.entry.data, title=form.title.data, author=current_user)
         db.session.add(p)
         db.session.commit()
         return redirect(url_for('login'))
@@ -57,6 +57,7 @@ def edit_entry(id):
     post_to_edit = Post.query.get_or_404(id)
     form = EditEntryForm()
     if form.validate_on_submit():
+        post_to_edit.title = form.title.data
         post_to_edit.body = form.entry.data
         db.session.commit()
         return redirect(url_for('login'))

@@ -12,12 +12,14 @@ class LoginForm(FlaskForm):
 
 # Form for a new journal entry
 class NewEntryForm(FlaskForm):
-    entry = StringField('Entry', validators=[DataRequired(), Length(max=140)])
+    title = StringField('Title', validators=[DataRequired(), Length(max=50)])
+    entry = StringField('Entry', validators=[DataRequired(), Length(max=1000)])
     submit = SubmitField('Submit')
 
 # Form for editing a journal entry
 class EditEntryForm(FlaskForm):
-    entry = StringField('Entry', validators=[DataRequired(), Length(max=140)])
+    title = StringField('Title', validators=[DataRequired(), Length(max=50)])
+    entry = StringField('Entry', validators=[DataRequired(), Length(max=1000)])
     submit = SubmitField('Submit')
 
 # Form for editing about me

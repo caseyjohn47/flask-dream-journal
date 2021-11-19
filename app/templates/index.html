@@ -5,7 +5,7 @@
     <h2>Welcome to your dream journal!</h2>
     <a class="action new-note" href="{{ url_for('new_entry') }}">New Journal Entry</a>
     {% for post in posts | reverse %}
-    <div><p>Dream from {{ post.timestamp }}: <b>{{ post.body }}</b></p></div>
+    <div><p>Dream from {{ post.timestamp }}: {{ post.title }}<br><b>{{ post.body }}</b></p></div>
     <a class="action edit-note" href="{{ url_for('edit_entry', id = post.id) }}">Edit</a>
 	<a class="action delete-note" href="{{ url_for('delete_entry', id = post.id) }}">Delete</a>
     {% endfor %}
