@@ -4,6 +4,12 @@
     <h1>Hi, {{ current_user.username }}!</h1>
     <h2>Welcome to your dream journal!</h2>
     <a class="action new-note" href="{{ url_for('new_entry') }}">New Journal Entry</a>
+    
+    {% if not posts %}
+        <br>
+        <div><b>No journal entries exist. You should write one!</b></div>
+    {% endif %}
+
     {% for post in posts | reverse %}
     <div><p>Dream from {{ post.timestamp }}: {{ post.title }}<br><b>{{ post.body }}</b></p></div>
     <a class="action edit-note" href="{{ url_for('edit_entry', id = post.id) }}">Edit</a>
