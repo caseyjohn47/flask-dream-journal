@@ -63,6 +63,7 @@ def edit_entry(id):
         return redirect(url_for('login'))
     elif request.method == 'GET':
         form.entry.data = post_to_edit.body
+        form.title.data = post_to_edit.title
     return render_template('edit.html', form=form)
 
 
